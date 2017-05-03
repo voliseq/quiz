@@ -10,7 +10,6 @@
         const init = () => {
 
 
-
             let ui_question_text = document.getElementsByClassName("question__text")[0],
                 ui_answers = Array.from(document.getElementsByClassName('answer')),
                 ui_answers_texts = ui_answers.map(x => x.children[0]),
@@ -22,12 +21,12 @@
 
             let _time = q_data.time_seconds,
                 _questions = q_data.questions,
-                _points = 0,
                 _current = -1,
                 _user_answers = [],
-                _correct_answers = quiz.correctAnswers(q_data);
+                _correct_answers = quiz.correctAnswers(q_data),
+                _finished = false;
 
-            let stopTimer = (timer)=> {
+            let stopTimer = (timer) => {
                 clearInterval(timer);
             };
 
@@ -36,8 +35,9 @@
                     time--;
                     ui_timer.innerHTML = time;
 
-                    if(time <= 0){
+                    if (time <= 0) {
                         clearInterval(q_timer);
+                        end();
                     }
 
                 }, 1000)
@@ -50,38 +50,41 @@
             let addAnswers = (e) => {
                 let answer = e.target.getAttribute('data-answer-id') || e.target.parentNode.getAttribute('data-answer-id');
                 _user_answers[_current] = parseInt(answer);
-                quiz.removeHighlight(ui_answers);
-                quiz.highlight(e.target);
+                quiz.removeClassArr(ui_answers, "selected");
+                quiz.addClass(e.target, "selected");
             }
 
-            let changeQuestion = (direction) => { // 0 - previous 1 - next
-
-                if (direction && _current < _questions.length-1) {
-                    _current++
+            let changeQuestion = (direction, number) => { // 0 - previous 1 - next
+                if (number != undefined) {
+                    _current = number;
+                }
+                else if (direction && _current < _questions.length - 1) {
+                    _current++;
                 }
                 else if (!direction && _current > 0) {
                     _current--;
                 }
                 else {
-                    console.log("aaaaa");
                     return;
                 }
-                // change answers text
                 let q_answers = _questions[_current].answers;
+
                 ui_answers.map((answer, index) => {
                     changeText(ui_answers[index], q_answers[index].answer);
                 });
-                // change questions text
+
                 changeText(ui_question_text, _questions[_current].question);
-                console.log(_current);
-
-
-
-                quiz.removeHighlight(ui_answers);
-                if(_user_answers[_current] != null){
-                    console.log(ui_answers[_user_answers[_current]]);
-                    quiz.highlight(ui_answers[_user_answers[_current]]);
+                quiz.removeClassArr(ui_answers, "selected");
+                quiz.removeClassArr(ui_answers, "selected--wrong");
+                if (_user_answers[_current] != null) {
+                    let cls = _user_answers[_current] == _correct_answers[_current] ? "selected" : "selected--wrong";
+                    quiz.addClass(ui_answers[_user_answers[_current]], cls);
                 }
+                if(_finished){
+                    quiz.removeClassArr(ui_answers, "correct");
+                    quiz.addClass(ui_answers[_correct_answers[_current]], "correct");
+                }
+
 
 
             };
@@ -106,12 +109,14 @@
                 ui_timer.innerHTML = _time;
                 changeQuestion(1);
                 attachEvents();
-                startTimer(_time);
+                startTimer(3);
             };
 
             let end = () => {
+                _finished = true;
                 stopTimer(q_timer);
-            }
+                changeQuestion(0, 0);
+            };
 
             return {
                 start: start,
@@ -123,7 +128,6 @@
         return {
             getInstance: () => {
                 if (!instance) {
-                    console.log(q_data);
                     instance = init();
                 }
                 return instance;
@@ -139,6 +143,7 @@
 
             let start_btn = document.getElementById('start');
             let end_btn = document.getElementById('end');
+            let feedback = document.getElementById('feedback');
 
             start_btn.addEventListener('click', (e) => {
                     qs.start();
@@ -148,6 +153,7 @@
 
             end_btn.addEventListener('click', (e) => {
                     qs.end();
+                    feedback.style.display = "block";
                 }
             );
         }).catch(error => {

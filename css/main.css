@@ -122,7 +122,16 @@ textarea {
 .answer.selected{
     background-color: #a8edc8;
 }
-
+.answer.correct{
+    background-color: #a8edc8;
+}
+.answer.selected--wrong{
+    background-color: #ff796b;
+}
+#feedback{
+    display: none;
+    color: #7ed7ac;
+}
 
 
 

@@ -26,17 +26,16 @@
             }).map(correct => {
                 return correct.id;
             })
-        }).map(a => a[0])
+        }).map(a => parseInt(a[0]) - 1)
     };
 
-    q.highlight = (element) => {
-        console.log(element);
-        element.classList.add('selected')
+    q.addClass = (element, cls) => {
+        element.classList.add(cls)
     };
 
-    q.removeHighlight = (elements) => {
+    q.removeClassArr = (elements, cls) => {
         elements.map((element) => {
-            element.classList.remove("selected");
+            element.classList.remove(cls);
         })
     };
 
