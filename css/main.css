@@ -116,6 +116,12 @@ textarea {
 #end{
     background-color: #ff796b;
 }
+.answer{
+    text-align: center;
+}
+.answer.selected{
+    background-color: #a8edc8;
+}
 
 
 

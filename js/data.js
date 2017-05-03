@@ -29,13 +29,14 @@
         }).map(a => a[0])
     };
 
-    q.highlight = (element, color) => {
-        element.style.backgroundColor = color;
+    q.highlight = (element) => {
+        console.log(element);
+        element.classList.add('selected')
     };
 
-    q.defaultHighlight = (elements, defaultColor) => {
+    q.removeHighlight = (elements) => {
         elements.map((element) => {
-          element.style.backgroundColor = defultColor;
+            element.classList.remove("selected");
         })
     };
 

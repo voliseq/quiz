@@ -49,28 +49,41 @@
 
             let addAnswers = (e) => {
                 let answer = e.target.getAttribute('data-answer-id') || e.target.parentNode.getAttribute('data-answer-id');
-                _user_answers[_current] = answer;
-                quiz.highlight(e.target, "red");
-                console.log(_user_answers);
+                _user_answers[_current] = parseInt(answer);
+                quiz.removeHighlight(ui_answers);
+                quiz.highlight(e.target);
             }
 
             let changeQuestion = (direction) => { // 0 - previous 1 - next
-                if (direction && _current < _questions.length) {
+
+                if (direction && _current < _questions.length-1) {
                     _current++
                 }
                 else if (!direction && _current > 0) {
                     _current--;
                 }
                 else {
+                    console.log("aaaaa");
                     return;
                 }
                 // change answers text
                 let q_answers = _questions[_current].answers;
-                ui_answers_texts.map((answer, index) => {
-                    changeText(ui_answers_texts[index], q_answers[index].answer);
+                ui_answers.map((answer, index) => {
+                    changeText(ui_answers[index], q_answers[index].answer);
                 });
                 // change questions text
-                changeText(ui_question_text, _questions[_current].question)
+                changeText(ui_question_text, _questions[_current].question);
+                console.log(_current);
+
+
+
+                quiz.removeHighlight(ui_answers);
+                if(_user_answers[_current] != null){
+                    console.log(ui_answers[_user_answers[_current]]);
+                    quiz.highlight(ui_answers[_user_answers[_current]]);
+                }
+
+
             };
 
             let attachEvents = () => {
