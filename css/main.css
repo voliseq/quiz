@@ -95,8 +95,18 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-
-
+.sg-layout__content{
+    max-width: 100%;
+}
+.sg-button--right{
+    float: right;
+}
+.sg-box{
+    cursor: pointer;
+}
+.sg-box:hover{
+    background-color: #d8f8e5;
+}
 
 
 
