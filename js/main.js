@@ -12,10 +12,10 @@
 
             let ui_question_text = document.getElementsByClassName("question__text")[0],
                 ui_answers = Array.from(document.getElementsByClassName('answer')),
-                ui_answers_texts = ui_answers.map(x => x.children[0]),
                 prev = document.getElementById('prev'),
                 next = document.getElementById('next'),
                 ui_timer = document.getElementById("timer"),
+                feedback = document.getElementById('feedback'),
                 q_timer;
 
 
@@ -109,13 +109,14 @@
                 ui_timer.innerHTML = _time;
                 changeQuestion(1);
                 attachEvents();
-                startTimer(3);
+                startTimer(_time);
             };
 
             let end = () => {
                 _finished = true;
                 stopTimer(q_timer);
                 changeQuestion(0, 0);
+                feedback.style.display = "inline-block";
             };
 
             return {
@@ -143,7 +144,7 @@
 
             let start_btn = document.getElementById('start');
             let end_btn = document.getElementById('end');
-            let feedback = document.getElementById('feedback');
+
 
             start_btn.addEventListener('click', (e) => {
                     qs.start();
@@ -153,7 +154,6 @@
 
             end_btn.addEventListener('click', (e) => {
                     qs.end();
-                    feedback.style.display = "block";
                 }
             );
         }).catch(error => {
