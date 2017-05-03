@@ -77,11 +77,13 @@
                 quiz.removeClassArr(ui_answers, "selected");
                 quiz.removeClassArr(ui_answers, "selected--wrong");
                 if (_user_answers[_current] != null) {
-                    let cls = _user_answers[_current] == _correct_answers[_current] ? "selected" : "selected--wrong";
-                    quiz.addClass(ui_answers[_user_answers[_current]], cls);
+
+                    quiz.addClass(ui_answers[_user_answers[_current]], "selected");
                 }
                 if(_finished){
+                    let cls = _user_answers[_current] == _correct_answers[_current] ? "selected" : "selected--wrong";
                     quiz.removeClassArr(ui_answers, "correct");
+                    quiz.addClass(ui_answers[_user_answers[_current]], cls);
                     quiz.addClass(ui_answers[_correct_answers[_current]], "correct");
                 }
 
