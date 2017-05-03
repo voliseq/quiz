@@ -14,20 +14,14 @@
                 ui_answers_texts = ui_answers.map(x => x.children[0]),
                 prev = document.getElementsByClassName('prev')[0],
                 next = document.getElementsByClassName('next')[0];
-
             let _time = q_data.time_seconds,
                 _questions = q_data.questions,
                 _points = 0,
                 _current = -1,
-                _user_answers = q_data.questions.map((question) => {
-                    return question.answers;
-                }).map((answers) => {
-                    return answers.filter((answer) => {
-                        return answer.correct.id
-                    })
-                }).map((correct) => {
-                    return correct[0].id
-                }); // arrays of ids of correct answers
+                _user_answers = [],
+                _correct_answers = quiz.correctAnswers(q_data);
+
+            console.log(_correct_answers);
 
 
 

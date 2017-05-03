@@ -18,6 +18,17 @@
         })
     };
 
+
+    q.correctAnswers = (data) => {
+       return data.questions.map(question => {
+            return question.answers.filter((answer) => {
+                return answer.correct;
+            }).map(correct => {
+                return correct.id;
+            })
+        }).map(a => a[0])
+    };
+
     w.q = w.q || q;
 
 })(window);
