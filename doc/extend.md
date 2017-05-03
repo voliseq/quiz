@@ -625,7 +625,7 @@ example for a retina iPhone:
 
 However, it is possible to detect which start-up image to use with JavaScript.
 The Mobile Boilerplate provides a useful function for this. Please see
-[helpers.js](https://github.com/h5bp/mobile-boilerplate/blob/v4.1.0/js/helper.js#L336-L383)
+[data.js](https://github.com/h5bp/mobile-boilerplate/blob/v4.1.0/js/helper.js#L336-L383)
 for the implementation.
 
 
