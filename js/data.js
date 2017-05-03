@@ -29,6 +29,16 @@
         }).map(a => a[0])
     };
 
+    q.highlight = (element, color) => {
+        element.style.backgroundColor = color;
+    };
+
+    q.defaultHighlight = (elements, defaultColor) => {
+        elements.map((element) => {
+          element.style.backgroundColor = defultColor;
+        })
+    };
+
     w.q = w.q || q;
 
 })(window);

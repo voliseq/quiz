@@ -107,7 +107,15 @@ textarea {
 .sg-box:hover{
     background-color: #d8f8e5;
 }
-
+.question{
+    text-align: center;
+}
+.sg-header{
+    text-align: center;
+}
+#end{
+    background-color: #ff796b;
+}
 
 
 

@@ -16,9 +16,9 @@
 
         <div class="sg-header sg-header--fixed">
             <div class="sg-header__container">
-                <p class="sg-header-primary sg-header-primary--light">
-                    Together we go far!
-                </p>
+                <h2 class="sg-header-primary sg-header-primary--small sg-header-primary--light">
+                    Time left: <span id="timer"></span>
+                </h2>
             </div>
         </div>
 
@@ -27,31 +27,34 @@
             <div class="sg-layout__content">
 
                 <div class="question sg-layout__box">
+                    <button id="start" class="sg-button-primary sg-button-primary--full-width sg-button-primary--alt">
+                        Start
+                    </button>
                     <h1 class="question__text sg-text sg-text--headline sg-text--regular">
 
                     </h1>
                 </div>
 
                 <div class="sg-layout__box">
-                    <div class="answer sg-box sg-box--full sg-box--small-padding" data-answer-id="0">
+                    <div class="answer sg-box sg-box--full sg-box-padding" data-answer-id="0">
                         <div class="answer__text sg-box__hole">
 
                         </div>
                     </div>
                     <div class="sg-horizontal-separator sg-horizontal-separator--spaced"></div>
-                    <div class="answer sg-box sg-box--full sg-box--small-padding" data-answer-id="1">
+                    <div class="answer sg-box sg-box--full sg-box--padding" data-answer-id="1">
                         <div class="answer__text sg-box__hole">
 
                         </div>
                     </div>
                     <div class="sg-horizontal-separator sg-horizontal-separator--spaced"></div>
-                    <div class="answer sg-box sg-box--full sg-box--small-padding" data-answer-id = "2">
+                    <div class="answer sg-box sg-box--full sg-box--padding" data-answer-id = "2">
                         <div class="answer__text sg-box__hole">
 
                         </div>
                     </div>
                     <div class="sg-horizontal-separator sg-horizontal-separator--spaced"></div>
-                    <div class="answer sg-box sg-box--full sg-box--small-padding" data-answer-id = "3">
+                    <div class="answer sg-box sg-box--full sg-box--padding" data-answer-id = "3">
                         <div class="answer__text sg-box__hole">
 
                         </div>
@@ -65,7 +68,11 @@
                     </button>
 
                 </div>
-
+                <div class="sg-layout__box">
+                    <button id="end" class="sg-button-primary sg-button-primary--full-width sg-button-primary--alt">
+                        Finish
+                    </button>
+                </div>
             </div>
         </div>
 
