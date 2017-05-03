@@ -21,12 +21,6 @@
                 _user_answers = [],
                 _correct_answers = quiz.correctAnswers(q_data);
 
-            console.log(_correct_answers);
-
-
-
-
-
             let changeText = (element, text) => {
                 element.innerText = text;
             };
@@ -72,6 +66,7 @@
 
             };
             attachEvents();
+
 
 
             return {
