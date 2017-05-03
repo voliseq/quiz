@@ -1,0 +1,87 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <link href="https://styleguide.brainly.com/77.2.0/style-guide.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+
+    <div class="sg-layout">
+
+        <div class="sg-header sg-header--fixed">
+            <div class="sg-header__container">
+                <h2 class="sg-header-primary sg-header-primary--small sg-header-primary--light">
+                    Time left: <span id="timer"></span>
+                </h2>
+            </div>
+        </div>
+
+        <div class="sg-layout__container">
+
+            <div class="sg-layout__content">
+
+                <div class="question sg-layout__box">
+                    <button id="start" class="sg-button-primary sg-button-primary--full-width sg-button-primary--alt">
+                        Start
+                    </button>
+                    <h2 class="question__text sg-header-primary sg-header-primary--small">
+
+                    </h2>
+                    <h2 id="feedback" class="sg-header-primary sg-header-primary--xsmall">
+                        Now you can go through all the questions again and see the correct answers;
+                    </h2>
+                </div>
+
+                <div class="sg-layout__box">
+                    <div class="answer sg-box sg-box--full sg-box-padding" data-answer-id="0">
+
+                    </div>
+                    <div class="sg-horizontal-separator sg-horizontal-separator--spaced"></div>
+                    <div class="answer sg-box sg-box--full sg-box--padding" data-answer-id="1">
+
+                    </div>
+                    <div class="sg-horizontal-separator sg-horizontal-separator--spaced"></div>
+                    <div class="answer sg-box sg-box--full sg-box--padding" data-answer-id="2">
+
+                    </div>
+                    <div class="sg-horizontal-separator sg-horizontal-separator--spaced"></div>
+                    <div class="answer sg-box sg-box--full sg-box--padding" data-answer-id="3">
+
+                    </div>
+                    <div class="sg-horizontal-separator sg-horizontal-separator--spaced"></div>
+                    <button class="prev sg-button-primary" id="prev">
+                        previous
+                    </button>
+                    <button class="next sg-button-primary sg-button--right" id="next">
+                        next
+                    </button>
+                </div>
+                <div class="sg-layout__box">
+                    <button id="end" class="sg-button-primary sg-button-primary--full-width sg-button-primary--alt">
+                        Finish
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sg-layout__footer">
+            <div class="sg-footer">
+                <div class="sg-footer__container">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <script src="https://styleguide.brainly.com/images/icons-5459066133.js"></script>
+        <script src="https://styleguide.brainly.com/images/subjects-icons-a297b895eb.js"></script>
+        <script src="js/data.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
